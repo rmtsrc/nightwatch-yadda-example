@@ -1,0 +1,9 @@
+{
+  "name": "nightwatch-yadda-example",
+  "description": "An example template on how to combine Nightwatch.js and Yadda (in Selenium Docker).",
+  "private": true,
+  "dependencies": {
+    "nightwatch": "*",
+    "yadda": "*"
+  }
+}
