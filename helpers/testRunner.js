@@ -5,11 +5,6 @@ var fs = require('fs'),
 function TestRunner() {
     'use strict';
     this.steps = {};
-    this.steps.before = function(browser) {
-        browser.go = function(uri) {
-            browser.url(browser.launchUrl + uri);
-        };
-    };
 
     this.steps.after = function(browser){
         browser.end();
