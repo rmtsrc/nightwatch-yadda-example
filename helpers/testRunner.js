@@ -1,12 +1,17 @@
 var fs = require('fs'),
     Yadda = require('yadda'),
-    parser = new Yadda.parsers.FeatureParser();
+    parser = new Yadda.parsers.FeatureParser(),
+    EventBus = Yadda.EventBus;
+
+EventBus.instance().on(EventBus.ON_EXECUTE, function(event) {
+    console.log("\x1b[36m "+event.data.step);
+});
 
 function TestRunner() {
     'use strict';
     this.steps = {};
 
-    this.steps.after = function(browser){
+    this.steps.after = function(browser) {
         browser.end();
     };
 
@@ -28,7 +33,7 @@ TestRunner.prototype.run = function run(filename) {
 
     feature.scenarios.forEach(function(scenario) {
         this.steps[scenario.title] = function(browser) {
-            this.yadda.yadda(scenario.steps, { browser: browser });
+            this.yadda.run(scenario.steps, { browser: browser });
         }.bind(this);
     }.bind(this));
 
