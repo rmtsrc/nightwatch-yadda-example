@@ -17,3 +17,5 @@ docker run -d -p 4444:4444 selenium/standalone-chrome:2.46.0
 ```sh
 nightwatch
 ```
+
+![Screenshot](screenshot.gif)
