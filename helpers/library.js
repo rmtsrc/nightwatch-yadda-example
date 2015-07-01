@@ -33,6 +33,10 @@ module.exports.init = function() {
             this.browser.click(selector);
         })
 
+        .when('I click link "$TEXT"', function(text) {
+            this.browser.clickLink(text);
+        })
+
         .then('$SELECTOR should be visible', function(selector) {
             this.browser.assert.visible(selector);
         })
